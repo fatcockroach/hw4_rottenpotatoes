@@ -29,6 +29,14 @@ module NavigationHelpers
       #~ '/movies/' + Movie.find_by_title($1).id.to_s + '/edit'
     when /^the details page for "(.*)"$/
       movie_path(Movie.find_by_title($1))
+    when /^the Similar Movies page for "(.*)"$/
+      #~ movies_by_director($1) # doesn't work
+      puts '*'*30
+      puts $1
+      puts '*'*30
+      Movie.find_by_title($1).director
+      '/movies/search_by_director/' + Movie.find_by_title($1).director
+      
     
     else
       begin

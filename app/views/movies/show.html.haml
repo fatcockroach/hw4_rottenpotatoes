@@ -16,5 +16,9 @@
 
 = link_to 'Edit', edit_movie_path(@movie)
 = button_to 'Delete', movie_path(@movie), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Find Movies With Same Director', movies_path
+
+= link_to 'Find Movies With Same Director', :controller => 'movies', :action => 'search_by_director', :director => @movie.director != nil ? @movie.director : 'director_not_set'
+-#= link_to 'Find Movies With Same Director', movies_by_director
+-#= link_to 'Find Movies With Same Director', movies_path
+
 = link_to 'Back to movie list', movies_path

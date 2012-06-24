@@ -59,6 +59,19 @@ class MoviesController < ApplicationController
   end
 
   def search_by_director
+    puts "*"*32
+    #~ puts params[:director]
+    #~ puts params[:director]
+    #~ redirect to movies_path
+    puts "*"*32
+    
+    if params[:director] == 'director_not_set'
+      redirect_to movies_path
+    end
+    
+    #~ @movies = Movie.find_all_by_rating("PG") # should change by_director("Director Name")
+    #~ @movies = Movie.find_all_by_director(@movie.params[:director]) # should change by_director("Director Name")
+    @movies = Movie.find_all_by_director(params[:director]) # should change by_director("Director Name")
   end
 
 end
