@@ -6,3 +6,9 @@ Given /the following movies exist/ do |movies_table|
   end
 #  flunk "Unimplemented"
 end
+
+Then /^the director of "([^"]*)" should be "([^"]*)"$/ do |title, director|
+  #~ debugger
+  #~ true
+  Movie.find_by_title(title).director.should == director # works
+end
