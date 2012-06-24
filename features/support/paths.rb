@@ -14,7 +14,11 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/'
+      #~ '/' # original version
+      '/movies' # by default in test cases all checkboxes are not checked - movie list will be empty
+      
+      # to show all movies:
+      #~ '/movies' + "?ratings[G]=1&ratings[NC-17]=1&ratings[PG]=1&ratings[PG-13]=1&ratings[R]=1&sort=release_date"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

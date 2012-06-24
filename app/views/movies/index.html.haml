@@ -24,7 +24,7 @@
         %td= movie.title 
         %td= movie.rating
         %td= movie.release_date
-        %td= movie.director
+        %td= movie.director != '' ? movie.director : "'#{movie.title}' has no director info"
         %td= link_to "More about #{movie.title}", movie_path(movie)
 
 = link_to 'Add new movie', new_movie_path
