@@ -67,7 +67,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     #~ if @movie.director == nil #  <<<FOR DEV-DB>>> in development db the director column is never set
     if @movie.director == '' # <<<FOR TEST-DB>>> in test db the director column is set to '' (see Background steps in features)
-      redirect_to movies_path # <<<FOR DEV-DB>>>
+      flash[:notice] = "'#{@movie.title}' has no director info"
+      redirect_to movies_path # <<<FOR DEV-DB>>> <<< --- WORKS WITH ADDED STEP TO SELECT ALL (GIVEN ALL SELECTED...)
+      
+      
       #~ redirect_to '/' # <<<FOR TEST-DB>>> 
       
       # in test env all checkboxes are not selected - to show movie list we must:
