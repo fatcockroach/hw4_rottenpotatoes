@@ -35,7 +35,8 @@ module NavigationHelpers
       puts $1
       puts '*'*30
       Movie.find_by_title($1).director
-      '/movies/search_by_director/' + Movie.find_by_title($1).director
+      #~ '/movies/search_by_director/' + Movie.find_by_title($1).director
+      '/movies/search_by_director/' + Movie.find_by_title($1).id.to_s
       
     
     else

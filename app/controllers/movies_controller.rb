@@ -64,14 +64,14 @@ class MoviesController < ApplicationController
     #~ puts params[:director]
     #~ redirect to movies_path
     puts "*"*32
-    
-    if params[:director] == 'director_not_set'
+    @movie = Movie.find(params[:id])
+    if @movie.director == nil
       redirect_to movies_path
     end
     
     #~ @movies = Movie.find_all_by_rating("PG") # should change by_director("Director Name")
     #~ @movies = Movie.find_all_by_director(@movie.params[:director]) # should change by_director("Director Name")
-    @movies = Movie.find_all_by_director(params[:director]) # should change by_director("Director Name")
+    @movies = Movie.find_all_by_director(@movie.director) # should change by_director("Director Name")
   end
 
 end
