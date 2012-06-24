@@ -27,6 +27,8 @@ module NavigationHelpers
       #~ "/movies/#{Movie.find_by_title($1).id}/edit"
       #~ '/movies/' + Movie.find_by_title($1)[:id].to_s + '/edit' # works
       #~ '/movies/' + Movie.find_by_title($1).id.to_s + '/edit'
+    when /^the details page for "(.*)"$/
+      movie_path(Movie.find_by_title($1))
     
     else
       begin
